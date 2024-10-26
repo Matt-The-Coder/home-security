@@ -30,9 +30,7 @@ export const ViewSales = () => {
             createdBy: user?.username,
         })
     }, [user])
-    useEffect(() => {
-        console.log(addUserForm)
-    }, [addUserForm])
+
     const getDevicesData = async () => {
         try {
             setIsLoading(true)

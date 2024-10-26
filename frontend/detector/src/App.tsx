@@ -11,6 +11,8 @@ import { MainLayout } from './layouts/MainLayout';
 import { CreateItems } from './pages/CreateItems';
 import { CreateSales } from './pages/CreateSales';
 import { RegisterPage } from './pages/Register';
+import { EditUsers } from './pages/EditUser';
+import { EditDevices } from './pages/EditDevices';
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -58,10 +60,10 @@ function App() {
       <Route element={<Homepage/>} path='/' />
       {/* Items */}
       <Route element={<ViewItems/>} path='/users/view' />
-      <Route element={<CreateItems/>} path='/items/create' />
+      <Route element={<EditUsers/>} path='/users/edit' />
       {/* Sales */}
       <Route element={<ViewSales/>} path='/devices/view' />
-      <Route element={<CreateSales/>} path='/sales/create' />
+      <Route element={<EditDevices/>} path='/devices/edit' />
       </Route>
     </Routes>
     </>

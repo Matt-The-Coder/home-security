@@ -440,6 +440,11 @@ export const MainLayout = () => {
 
                             List of devices
                           </Link>
+                          <Link    className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
+                          
+                          onClick={()=>{setBreadCrumb("Items")}}to="/devices/edit">
+                        Edit devices
+                        </Link>
                         </li>
                         {/* <li>
                           <Link
@@ -618,6 +623,11 @@ export const MainLayout = () => {
                               </g>
                             </svg> */}
                             List of accounts 
+                          </Link>
+                          <Link    className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-200"
+                          
+                            onClick={()=>{setBreadCrumb("Items")}}to="/users/edit">
+                          Edit accounts
                           </Link>
                         </li>
                         {/* <li>

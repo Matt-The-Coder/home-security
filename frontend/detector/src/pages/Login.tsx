@@ -8,11 +8,26 @@ export const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
   const [wrongCredentials, setWrongCredentials] = useState(false)
+  const [rememberMe, setRememberMe] = useState(false)
   const navigate = useNavigate()
   const hostServer = import.meta.env.VITE_SERVER_HOST
   useEffect(()=>{
     authCheck()
   }, [])
+  useEffect(()=>{
+  
+    const isRemembered = localStorage.getItem('rememberMe')
+    const storedUsername = localStorage.getItem('username')
+    if(isRemembered){
+      console.log(storedUsername)
+      if(storedUsername){
+        setEmail(storedUsername)
+        setRememberMe(JSON.parse(isRemembered))
+      }
+
+
+    }
+  },[])
 
   const authCheck = async () => {
     try {
@@ -35,6 +50,15 @@ export const LoginPage = () => {
         password:password
       })
       if(result.data.success){
+        if(rememberMe){
+          localStorage.setItem('rememberMe', JSON.stringify(rememberMe))
+          localStorage.setItem('username', email)
+        }else{
+          localStorage.removeItem('rememberMe')
+          localStorage.removeItem('username')
+        }
+
+
         navigate("/")
       }
       if(result.data.message){
@@ -137,6 +161,7 @@ export const LoginPage = () => {
                 
               <input
               onChange={(e)=>{setEmail(e.target.value)}}
+              value={email}
                 type="email"
                 id="email"
                 name="email"
@@ -213,9 +238,11 @@ export const LoginPage = () => {
           </div>
           {/* End Form Group */}
           {/* Checkbox */}
-          {/* <div className="flex items-center">
+          <div className="flex items-center">
             <div className="flex">
               <input
+              onChange={(e)=>{setRememberMe(e.target.checked)}}
+              checked={rememberMe}
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
@@ -227,7 +254,7 @@ export const LoginPage = () => {
                 Remember me
               </label>
             </div>
-          </div> */}
+          </div>
           {/* End Checkbox */}
           <button
             type="submit"

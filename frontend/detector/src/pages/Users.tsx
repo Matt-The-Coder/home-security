@@ -164,7 +164,7 @@ export const ViewItems = () => {
                                                     Users Data
                                                 </h2>
                                                 <p className="text-sm text-gray-600 dark:text-neutral-400">
-                                                    Create users, edit and and delete.
+                                                    Create users and delete.
                                                 </p>
                                             </div>
                                             <div>

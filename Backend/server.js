@@ -73,8 +73,28 @@ app.post("/registerDevice", async (req, res)=>{
   console.log(result)
   res.json(result)
 })
+app.post("/updateDevice", async (req, res)=>{
+  const {deviceID, status, deviceName} = req.body
+  const query = `UPDATE devices set status = '${status}', device_name='${deviceName}' where device_id = ${deviceID}`
+  const result = await db(query)
+  console.log(result)
+  res.json(result)
+})
 app.delete("/removeDevice/:id", async (req, res)=>{
   const query = `Delete from devices where device_id = ${req.params.id}`
+  const result = await db(query)
+  console.log(result)
+  res.json(result)
+})
+app.get("/getUsers", async (req, res)=>{
+  const query = "Select * from users"
+  const result = await db(query)
+  console.log(result)
+  res.json(result)
+})
+app.post("/updateUser", async (req, res)=>{
+  const {userID, username, email} = req.body
+  const query = `UPDATE users set username = '${username}', email='${email}' where user_id = ${userID}`
   const result = await db(query)
   console.log(result)
   res.json(result)

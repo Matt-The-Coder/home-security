@@ -8,8 +8,6 @@ import { LoginPage } from './pages/Login';
 import { ViewItems } from './pages/Users';
 import { ViewSales } from './pages/Devices';
 import { MainLayout } from './layouts/MainLayout';
-import { CreateItems } from './pages/CreateItems';
-import { CreateSales } from './pages/CreateSales';
 import { RegisterPage } from './pages/Register';
 import { EditUsers } from './pages/EditUser';
 import { EditDevices } from './pages/EditDevices';

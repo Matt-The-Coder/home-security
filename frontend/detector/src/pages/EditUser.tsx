@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { devices, OutletContextType, users } from "../layouts/MainLayout"
+import { OutletContextType, users } from "../layouts/MainLayout"
 import { useNavigate, useOutletContext } from "react-router-dom"
 import React from "react"
 
